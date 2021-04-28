@@ -1,0 +1,134 @@
+@page "/Employ/Index"
+@model CajunCars.Pages.Employ.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE HTML>
+<!--
+Solid State by HTML5 UP
+html5up.net 
+Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="/assets/css/main.css"/>
+    <noscript>
+        <link rel="stylesheet" href="/assets/css/noscript.css"/>
+    </noscript>
+</head>
+<body class="is-preload">
+
+<!-- Page Wrapper -->
+<div id="page-wrapper">
+
+    <!-- Header -->
+    <header id="header" class="alt">
+        <nav>
+            <a href="#menu">Menu</a>
+        </nav>
+    </header>
+
+    <!-- Menu -->
+
+
+    <nav id="menu">
+        <div class="inner">
+            <h2>Menu</h2>
+            <ul class="links">
+                <li>
+                    <a asp-area="" asp-page="/Landing">Home</a>
+                </li>
+                <li>
+                    <a asp-area="" asp-page="/Employ/Index">Employees</a>
+                </li>
+               <li>
+                                   <a asp-area="" asp-page="/Vehicles/Index">Vehicle Inventory</a>
+                               </li>
+                               <li>
+                                   <a asp-area="" asp-page="/SoldVehi">Sold Vehicles</a>
+                               </li>
+                                 <li>
+                                                   <a asp-area="" asp-page="/Commission">Commissions</a>
+                                               </li>
+            </ul>
+            <a href="#" class="close">Close</a>
+        </div>
+    </nav>
+
+
+    <h1>Current Employees</h1>
+
+    <a class="button primary" asp-page="Create">Hire New Employees</a>
+    <a class="button primary" asp-page="EmploySearch">Search Employes</a>
+    
+    <section>
+    <div class="table-wrapper">
+    <table>
+        <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee[0].DId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee[0].Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee[0].Position)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee[0].Pay)
+            </th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model.Employee)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Position)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Pay)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.EId">Transfer</a> |
+                    @* <a asp-page="./Details" asp-route-id="@item.EId">Details</a> |*@
+                    <a asp-page="./Delete" asp-route-id="@item.EId">Fire</a>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+     </div>
+     </section>
+
+ 
+
+</div>
+
+<!-- Scripts -->
+<script src="/assets/js/jquery.min.js"></script>
+<script src="/assets/js/jquery.scrollex.min.js"></script>
+<script src="/assets/js/browser.min.js"></script>
+<script src="/assets/js/breakpoints.min.js"></script>
+<script src="/assets/js/util.js"></script>
+<script src="/assets/js/main.js"></script>
+
+</body>
+</html>

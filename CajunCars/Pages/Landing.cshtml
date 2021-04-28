@@ -1,0 +1,232 @@
+﻿@page
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model CajunCars.Pages.Landing
+
+
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE HTML>
+<!--
+Solid State by HTML5 UP
+html5up.net 
+Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="assets/css/main.css"/>
+    <noscript>
+        <link rel="stylesheet" href="assets/css/noscript.css"/>
+    </noscript>
+</head>
+<body class="is-preload">
+
+<!-- Page Wrapper -->
+<div id="page-wrapper">
+
+    <!-- Header -->
+    <header id="header" class="alt">
+        <h1>
+            <a href="index.html">Solid State</a>
+        </h1>
+        <nav>
+            <a href="#menu">Menu</a>
+        </nav>
+    </header>
+
+    <!-- Menu -->
+
+
+    <nav id="menu">
+        <div class="inner">
+            <h2>Menu</h2>
+            <ul class="links">
+                <li>
+                    <a asp-area="" asp-page="/Landing">Home</a>
+                </li>
+                <li>
+                    <a asp-area="" asp-page="/Employ/Index">Employees</a>
+                </li>
+               <li>
+                                   <a asp-area="" asp-page="/Vehicles/Index">Vehicle Inventory</a>
+                               </li>
+                <li>
+                    <a asp-area="" asp-page="/SoldVehi">Sold Vehicles</a>
+                </li>
+                 <li>
+                                                   <a asp-area="" asp-page="/Commission">Commissions</a>
+                                               </li>
+            </ul>
+            <a href="#" class="close">Close</a>
+        </div>
+    </nav>
+
+
+    <!-- Banner -->
+    <section id="banner">
+        <div class="inner">
+            <div class="logo">
+                <span class="icon fa-gem"></span>
+            </div>
+            <h2>Welcome To Cajun Cars </h2>
+        </div>
+    </section>
+
+    <!-- Wrapper -->
+
+
+    @{
+        List<string> DL = new List<string>();
+    }
+
+    @foreach (var dealer in Landing.DealershipList.GetDealershipList())
+    {
+        DL.Add(dealer);
+    }
+
+    @{
+        <section id="wrapper">
+            <!-- One -->
+            <section id="one" class="wrapper spotlight style1">
+                <div class="inner">
+                    <a href="#" class="image">
+                        <img src="~/toyota.jpg" width="200" height="200" alt=""/>
+                    </a>
+                    <div class="content">
+                        <h2 class="major">Cajun Toyota</h2>
+                        <p>@DL[0]</p>
+                        <a asp-page="Dealership1" class="special">Learn more</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Two -->
+            <section id="two" class="wrapper alt spotlight style2">
+                <div class="inner">
+                    <a href="#" class="image">
+                        <img src="~/ford.png" width="200" height="200" alt=""/>
+                    </a>
+                    <div class="content">
+                        <h2 class="major">Cajun Ford</h2>
+                        <p>@DL[1]</p>
+                        <a asp-page="Dealership2" class="special">Learn more</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Three -->
+            <section id="three" class="wrapper spotlight style3">
+                <div class="inner">
+                    <a href="#" class="image">
+                        <img src="~/bmw.png" width="200" height="200" alt=""/>
+                    </a>
+                    <div class="content">
+                        <h2 class="major">Ragin Cajun Luxury Autos </h2>
+                        <p>@DL[2]</p>
+                        <a asp-page="Dealership3" class="special">Learn more</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Two -->
+            <section id="two" class="wrapper alt spotlight style2">
+                <div class="inner">
+                    <a href="#" class="image">
+                        <img src="~/audi.png" width="200" height="200" alt=""/>
+                    </a>
+                    <div class="content">
+                        <h2 class="major">Beaucoup Luxury Autos</h2>
+                        <p>@DL[3]</p>
+                        <a asp-page="Dealership4" class="special">Learn more</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- One -->
+            <section id="one" class="wrapper spotlight style1">
+                <div class="inner">
+                    <a href="#" class="image">
+                        <img src="~/benz.png" width="200" height="200" alt=""/>
+                    </a>
+                    <div class="content">
+                        <h2 class="major">Luxury Autos on the Bayou</h2>
+                        <p>@DL[4]</p>
+                        <a asp-page="Dealership5" class="special">Learn more</a>
+                    </div>
+                </div>
+            </section>
+        </section>
+    }
+    
+    @*
+    <!-- Footer -->
+    <section id="footer">
+        <div class="inner">
+            <h2 class="major">Get in touch</h2>
+            <form method="post" action="#">
+                <div class="fields">
+                    <div class="field">
+                        <label for="name">Name</label>
+                        <input type="text" name="name" id="name"/>
+                    </div>
+                    <div class="field">
+                        <label for="email">Email</label>
+                        <input type="email" name="email" id="email"/>
+                    </div>
+                    <div class="field">
+                        <label for="message">Message</label>
+                        <textarea name="message" id="message" rows="4"></textarea>
+                    </div>
+                </div>
+                <ul class="actions">
+                    <li>
+                        <input type="submit" value="Send Message"/>
+                    </li>
+                </ul>
+            </form>
+            <ul class="contact">
+                <li class="icon solid fa-home">
+                    Untitled Inc<br/>
+                    1234 Somewhere Road Suite #2894<br/>
+                    Lafayette, LA 00000-0000
+                </li>
+                <li class="icon solid fa-phone">(000) 000-0000</li>
+                <li class="icon solid fa-envelope">
+                    <a href="#">information@untitled.tld</a>
+                </li>
+                <li class="icon brands fa-twitter">
+                    <a href="#">twitter.com/untitled-tld</a>
+                </li>
+                <li class="icon brands fa-facebook-f">
+                    <a href="#">facebook.com/untitled-tld</a>
+                </li>
+                <li class="icon brands fa-instagram">
+                    <a href="#">instagram.com/untitled-tld</a>
+                </li>
+            </ul>
+             <ul class="copyright">
+                <li>&copy; Untitled Inc. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+            </ul>
+
+
+        </div>
+    </section>
+    
+    *@
+
+</div>
+
+<!-- Scripts -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.scrollex.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+
+</body>
+</html>

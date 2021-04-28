@@ -1,0 +1,60 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+@{
+  Layout = null;
+}
+
+<!DOCTYPE HTML>
+<!--
+Solid State by HTML5 UP
+html5up.net 
+Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+  <link rel="stylesheet" href="assets/css/main.css"/>
+  <noscript>
+    <link rel="stylesheet" href="assets/css/noscript.css"/>
+  </noscript>
+</head>
+<body class="is-preload">
+
+<!-- Page Wrapper -->
+<div id="page-wrapper">
+    
+    <form method="post" asp-page="Index">
+        <table>
+            <tr>
+                <td>Username</td>
+                <td><input type="text" asp-for="@Model.UName" /></td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td><input type="password" asp-for="@Model.UPass" /></td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td><input type="submit" value="Login" /></td>
+            </tr>
+        </table>
+    </form>
+    
+    <h4>@Model.MSG</h4>
+</div>
+
+<!-- Scripts -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.scrollex.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+
+</body>
+</html>

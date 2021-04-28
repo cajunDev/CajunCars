@@ -1,0 +1,50 @@
+@page
+@model CajunCars.Pages.Vehicles.VehicleSaleModel
+
+@{
+    ViewData["Title"] = "VehicleSale";
+}
+
+<h1>VehicleSale</h1>
+
+<h4>SoldVehicle</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="SoldVehicle.Vin" class="control-label"></label>
+                <input asp-for="SoldVehicle.Vin" class="form-control" />
+                <span asp-validation-for="SoldVehicle.Vin" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SoldVehicle.EId" class="control-label"></label>
+                <input asp-for="SoldVehicle.EId" class="form-control" />
+                <span asp-validation-for="SoldVehicle.EId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SoldVehicle.Price" class="control-label"></label>
+                <input asp-for="SoldVehicle.Price" class="form-control" />
+                <span asp-validation-for="SoldVehicle.Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SoldVehicle.SalesMonth" class="control-label"></label>
+                <input asp-for="SoldVehicle.SalesMonth" class="form-control" />
+                <span asp-validation-for="SoldVehicle.SalesMonth" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SoldVehicle.SalesYear" class="control-label"></label>
+                <input asp-for="SoldVehicle.SalesYear" class="form-control" />
+                <span asp-validation-for="SoldVehicle.SalesYear" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a class="button primary" asp-page="./Index">Back to List</a>
+</div>

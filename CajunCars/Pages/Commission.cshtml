@@ -1,0 +1,107 @@
+﻿@page
+@model CajunCars.Pages.Commission
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="assets/css/main.css"/>
+    <noscript>
+        <link rel="stylesheet" href="assets/css/noscript.css"/>
+    </noscript>
+</head>
+<body class="is-preload">
+
+<!-- Page Wrapper -->
+<div id="page-wrapper">
+    <!-- Header -->
+    <header id="header" class="alt">
+        <h1>
+            <a href="index.html">Solid State</a>
+        </h1>
+        <nav>
+            <a href="#menu">Menu</a>
+        </nav>
+    </header>
+
+    <!-- Menu -->
+
+
+    <nav id="menu">
+        <div class="inner">
+            <h2>Menu</h2>
+            <ul class="links">
+                <li>
+                    <a asp-area="" asp-page="/Landing">Home</a>
+                </li>
+                <li>
+                    <a asp-area="" asp-page="/Employ/Index">Employees</a>
+                </li>
+                <li>
+                    <a asp-area="" asp-page="/Vehicles/Index">Vehicle Inventory</a>
+                </li>
+                <li>
+                    <a asp-area="" asp-page="/SoldVehi">Sold Vehicles</a>
+                </li>
+                <li>
+                    <a asp-area="" asp-page="/Commission">Commissions</a>
+                </li>
+            </ul>
+            <a href="#" class="close">Close</a>
+        </div>
+    </nav>
+    <h2> Commissions Page</h2>
+    
+    <section>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                <tr>
+                
+                    <th>Employee ID</th>
+                    <th>Name</th>
+                    <th>Monthly Commission</th>
+                   
+                </tr>
+                </thead>
+                <tbody>
+                @foreach (var currentEmp in EmployeeCommisionList.GetEmployeeCommisionList())
+                {
+                    string[] words = currentEmp.Split(" ,");
+
+                    <tr>
+                        <td>
+                            @words[0]
+                        </td>
+                        <td>
+                            @words[1]
+                        </td>
+                          <td>
+                            @words[2]
+                        </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+    </section>
+    
+
+</div>
+
+<!-- Scripts -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.scrollex.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+
+</body>
+</html>

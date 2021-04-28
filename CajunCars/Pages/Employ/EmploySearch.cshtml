@@ -1,0 +1,55 @@
+﻿@page
+@model CajunCars.Pages.Employ.EmploySearch
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="/assets/css/main.css"/>
+    <noscript>
+        <link rel="stylesheet" href="/assets/css/noscript.css"/>
+    </noscript>
+</head>
+<body class="is-preload">
+
+<!-- Page Wrapper -->
+<div id="page-wrapper">
+
+            <form method="post" enctype="multipart/form-data">
+                List Employees By Position:
+                <input type="text" asp-for="PosEmploy">
+                <input type="submit" value="Submit">
+            </form>
+
+    @foreach (var currEmp in EmployeeList.GetEmployeesListPosition(Model.PosEmploy))
+              {
+                <p>@currEmp</p>
+                  <br>
+                  
+              }
+
+    
+
+
+    <a class="button primary" asp-page="Index">Back to All Employees</a>
+    
+
+
+</div>
+
+<!-- Scripts -->
+<script src="/assets/js/jquery.min.js"></script>
+<script src="/assets/js/jquery.scrollex.min.js"></script>
+<script src="/assets/js/browser.min.js"></script>
+<script src="/assets/js/breakpoints.min.js"></script>
+<script src="/assets/js/util.js"></script>
+<script src="/assets/js/main.js"></script>
+
+</body>
+</html>

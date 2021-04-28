@@ -1,0 +1,135 @@
+﻿@page
+@model CajunCars.Pages.Dealership2
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="assets/css/main.css"/>
+    <noscript>
+        <link rel="stylesheet" href="assets/css/noscript.css"/>
+    </noscript>
+</head>
+<body class="is-preload">
+
+<!-- Page Wrapper -->
+<div id="page-wrapper">
+
+    <h2> Cajun Ford</h2>
+    <section>
+        <h4>All Employees at dealership</h4>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                <tr>
+                    <th>Dealership ID</th>
+                    <th>Employee ID</th>
+                    <th>Name</th>
+                    <th>Position</th>
+                    <th>Pay</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach (var currentEmp in DealerEmployeeList.GetEmployeesList("D002"))
+                {
+                    string[] words = currentEmp.Split(" ,");
+
+                    <tr>
+                        <td>
+                            @words[0]
+                        </td>
+                        <td>
+                            @words[1]
+                        </td>
+                        <td>
+                            @words[2]
+                        </td>
+                        <td>
+                            @words[3]
+                        </td>
+                        <td>
+                            @words[4]
+                        </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+
+    <section>
+        <h4>All Vehicles at dealership</h4>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                <tr>
+                    <th>Dealership ID</th>
+                    <th>VIN</th>
+                    <th>Make</th>
+                    <th>Model</th>
+                    <th>Color</th>
+                    <th>Type</th>
+                    <th>Horse Power</th>
+                    <th>Price</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach (var currentVeh in DealerVehicleList.GetVehicleList("D002"))
+                {
+                    string[] words = currentVeh.Split(" ,");
+
+                    <tr>
+                        <td>
+                            @words[0]
+                        </td>
+                        <td>
+                            @words[1]
+                        </td>
+                        <td>
+                            @words[2]
+                        </td>
+                        <td>
+                            @words[3]
+                        </td>
+                        <td>
+                            @words[4]
+                        </td>
+                        <td>
+                            @words[5]
+                        </td>
+                        <td>
+                            @words[6]
+                        </td>
+                        <td>
+                            @words[7]
+                        </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    
+     <a class="button primary" asp-page="Landing">Back to Home</a>
+
+
+</div>
+
+<!-- Scripts -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.scrollex.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+
+</body>
+</html>

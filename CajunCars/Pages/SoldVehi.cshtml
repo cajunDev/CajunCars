@@ -1,0 +1,48 @@
+@page "/SoldVehi"
+@model CajunCars.Pages.SoldVehiModel
+
+@{
+    ViewData["Title"] = "SoldVehi";
+}
+
+<h1>Sold Vehicles</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SoldVehicle[0].EId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SoldVehicle[0].Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SoldVehicle[0].SalesMonth)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SoldVehicle[0].SalesYear)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.SoldVehicle) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SalesMonth)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SalesYear)
+            </td>
+         
+        </tr>
+}
+    </tbody>
+</table>
