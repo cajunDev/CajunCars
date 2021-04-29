@@ -23,18 +23,93 @@
 
             <form method="post" enctype="multipart/form-data">
                 List Employees By Position:
-                <input type="text" asp-for="PosEmploy">
+               @* <input type="text" asp-for="PosEmploy">*@
+                
+                 <label for="cars">Choose a Position:</label>
+                  <select asp-for="PosEmploy">
+                   <option value=""></option>
+                    <option value="MECH">MECH</option>
+                    <option value="SP">SP</option>
+                    <option value="GM">GM</option>
+                  </select>
                 <input type="submit" value="Submit">
             </form>
 
-    @foreach (var currEmp in EmployeeList.GetEmployeesListPosition(Model.PosEmploy))
-              {
-                <p>@currEmp</p>
-                  <br>
-                  
-              }
-
+    <div class="table-wrapper">
+        <table>
+      
+            @foreach (var currEmp in EmployeeList.GetEmployeesListPosition(Model.PosEmploy))
+            {<tr>
+                 <td>@currEmp</td>
+             </tr>
+            }
+       
+        </table>
+    </div>
     
+    
+    <form method="post" enctype="multipart/form-data">
+            List Employees By Minimum Pay:
+            <input type="text" asp-for="PayEmploy">
+            <input type="submit" value="Submit">
+        </form>
+        <br><br>
+    <div class="table-wrapper">
+        <table>
+          
+            @foreach (var currEmp in EmployeeList.GetEmployeesListPay(Model.PayEmploy))
+            {<tr>
+                 <td>@currEmp</td>
+                 </tr>
+            }
+           
+        </table>
+                                </div>
+
+    @* 
+    
+     <div class="table-wrapper">
+            <table>
+                <thead>
+                <tr>
+                    <th>Dealership ID</th>
+                    <th>Employee ID</th>
+                    <th>Name</th>
+                    <th>Position</th>
+                    <th>Pay</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach (var currentEmp in EmployeeList.GetEmployeesListPosition(Model.PosEmploy))
+                {
+                    string[] words = currentEmp.Split(".");
+
+                    <tr>
+                        <td>
+                            @words[0]
+                        </td>
+                        <td>
+                            @words[1]
+                        </td>
+                        <td>
+                            @words[2]
+                        </td>
+                        <td>
+                            @words[3]
+                        </td>
+                        <td>
+                            @words[4]
+                        </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+        
+          *@
+
+
+
 
 
     <a class="button primary" asp-page="Index">Back to All Employees</a>

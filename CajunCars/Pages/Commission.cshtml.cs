@@ -58,8 +58,10 @@ namespace CajunCars.Pages
                             }
                         }
 
+                        double commissionPay = c.CommRate * TotalPrice;
+                             // "123.46"
 
-                        AllEmployeesCommission.Add($"{c.EId} ,{c.Name} ,{c.CommRate * TotalPrice }");
+                        AllEmployeesCommission.Add($"{c.EId} ,{c.Name} ,{String.Format("{0:0.##}", commissionPay)}");
                     }
 
                     return AllEmployeesCommission;

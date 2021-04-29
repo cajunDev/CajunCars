@@ -22,5 +22,14 @@ namespace CajunCars.Pages.Vehicles
         [BindProperty]
         [Required]
         public int VSHP { get; set; }
+        
+        [BindProperty]
+        [Required]
+        public int VSPrice { get; set; }
+        
+        [BindProperty]
+        [Required]
+        public string VSModel { get; set; }
+        
     }
 }

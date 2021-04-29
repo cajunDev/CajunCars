@@ -24,52 +24,131 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 
 <!-- Page Wrapper -->
 <div id="page-wrapper">
-<div>
-    <form method="post" enctype="multipart/form-data">
-        List Vehicles By Type:
-        <input type="text" asp-for="VSType">
-        <input type="submit" value="Submit">
-    </form>
-    <br><br>
-    @foreach (var currEmp in VehicleList.GetVehicleListType(Model.VSType))
-    {
-        @currEmp
-        <br>
-    }
-</div>
+    <div>
+        <form method="post" enctype="multipart/form-data">
+            List Vehicles By Type:
+            @*   <input type="text" asp-for="VSType"> *@
 
-<div>
-    <form method="post" enctype="multipart/form-data">
-        List Vehicles By Color:
-        <input type="text" asp-for="VSColor">
-        <input type="submit" value="Submit">
-    </form>
-    <br><br>
-    @foreach (var currEmp in VehicleList.GetVehicleListColor(Model.VSColor))
-    {
-        @currEmp
-        <br>
-    }
-</div>
+            <label for="cars">Choose a Type:</label>
+            <select asp-for="VSType">
+                <option value=""></option>
+                <option value="Sedan">Sedan</option>
+                <option value="SUV">SUV</option>
+                <option value="Sports Car">Sports Car</option>
+                <option value="PickUp">Pick Up</option>
+            </select>
+            <input type="submit" value="Submit">
+        </form>
+        <br><br>
+        <table>
 
-<div>
-    <form method="post" enctype="multipart/form-data">
-        List Vehicles By Minimum Horse Power:
-        <input type="text" asp-for="VSHP">
-        <input type="submit" value="Submit">
-    </form>
-    <br><br>
-    @foreach (var currEmp in VehicleList.GetVehicleListHP(Model.VSHP))
-    {
-        @currEmp
-        <br>
-    }
-</div>
+            @foreach (var currEmp in VehicleList.GetVehicleListType(Model.VSType))
+            {
+                
+            <tr>
+                <td>@currEmp</td>
+            </tr>
+            }
 
-<div>
-    <a class="button primary" asp-page="./Index">Back to List</a>
-</div>
+        </table>
+    </div>
 
+
+    <div>
+        <form method="post" enctype="multipart/form-data">
+            List Vehicles By Type:
+            @*   <input type="text" asp-for="VSType"> *@
+
+            <label for="carmodels">Choose a Model:</label>
+            <select asp-for="VSModel">
+                <option value=""></option>
+                <option value="Toyota">Toyota</option>
+                <option value="Ford">Ford</option>
+                <option value="BMW">BMW</option>
+                <option value="Audi">Audi</option>
+                <option value="Mercedes">Mercedes</option>
+            </select>
+            <input type="submit" value="Submit">
+        </form>
+        <br><br>
+        <table>
+
+            @foreach (var currEmp in VehicleList.GetVehicleListModel(Model.VSModel))
+            {
+                
+            <tr>
+                <td>@currEmp</td>
+            </tr>
+            }
+
+        </table>
+    </div>
+
+    <div>
+        <form method="post" enctype="multipart/form-data">
+            List Vehicles By Color:
+            <input type="text" asp-for="VSColor">
+            <input type="submit" value="Submit">
+        </form>
+        <br><br>
+        <table>
+
+            @foreach (var currEmp in VehicleList.GetVehicleListColor(Model.VSColor))
+            {
+                
+            <tr>
+                <td>@currEmp</td>
+            </tr>
+            }
+
+        </table>
+    </div>
+
+
+    <div>
+        <form method="post" enctype="multipart/form-data">
+            List Vehicles By Minimum Price:
+            <input type="text" asp-for="VSPrice">
+            <input type="submit" value="Submit">
+        </form>
+        <br><br>
+        <table>
+
+            @foreach (var currEmp in VehicleList.GetVehicleListPrice(Model.VSPrice))
+            {
+                
+            <tr>
+                <td>@currEmp</td>
+            </tr>
+            }
+
+        </table>
+    </div>
+
+
+    <div>
+        <form method="post" enctype="multipart/form-data">
+            List Vehicles By Minimum Horse Power:
+            <input type="text" asp-for="VSHP">
+            <input type="submit" value="Submit">
+        </form>
+        <br><br>
+        <table>
+
+            @foreach (var currEmp in VehicleList.GetVehicleListHP(Model.VSHP))
+            {
+                
+            <tr>
+                <td>@currEmp</td>
+            </tr>
+            }
+
+        </table>
+    </div>
+
+    <div>
+        <a class="button primary" asp-page="./Index">Back to List</a>
+    </div>
 
 
 </div>

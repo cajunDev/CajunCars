@@ -14,5 +14,9 @@ namespace CajunCars.Pages.Employ
         [BindProperty]
         [Required]
         public string PosEmploy { get; set; }
+        
+        [BindProperty]
+        [Required]
+        public int PayEmploy { get; set; }
     }
 }

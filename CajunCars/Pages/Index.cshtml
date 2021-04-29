@@ -8,25 +8,12 @@
   Layout = null;
 }
 
-<!DOCTYPE HTML>
-<!--
-Solid State by HTML5 UP
-html5up.net 
-Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-<head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
-  <link rel="stylesheet" href="assets/css/main.css"/>
-  <noscript>
-    <link rel="stylesheet" href="assets/css/noscript.css"/>
-  </noscript>
-</head>
-<body class="is-preload">
 
+
+
+@*
 <!-- Page Wrapper -->
-<div id="page-wrapper">
+<div class="login">
     
     <form method="post" asp-page="Index">
         <table>
@@ -48,13 +35,38 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
     <h4>@Model.MSG</h4>
 </div>
 
-<!-- Scripts -->
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/jquery.scrollex.min.js"></script>
-<script src="assets/js/browser.min.js"></script>
-<script src="assets/js/breakpoints.min.js"></script>
-<script src="assets/js/util.js"></script>
-<script src="assets/js/main.js"></script>
+*@
+<!DOCTYPE HTML>
+<html lang="en" >
+<html>
+<head>
+  <title>Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+   <link rel="stylesheet" href="~/userCSS/loginCSS.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>  
+  <link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'> 
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+</head>
+
+<body class="body">
+
+<div class="login-page">
+  <div class="form">
+
+    <form method="post" asp-page="Index">
+        <input type="text" placeholder="&#xf007;  username" asp-for="@Model.UName"/>
+        <input type="password" id="password" placeholder="&#xf023;  password" asp-for="@Model.UPass" />
+         <i class="fas fa-eye"></i> 
+        <br>
+      <br>
+      <button>LOGIN</button>
+        <p>@Model.MSG </p>
+    </form>
+  </div>
+</div>
 
 </body>
 </html>
+

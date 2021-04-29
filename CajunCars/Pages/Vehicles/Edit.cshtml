@@ -30,68 +30,67 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 <!-- Page Wrapper -->
 <div id="page-wrapper">
 
-<h4>StoredVehicle</h4>
+    <h4>StoredVehicle</h4>
 
 
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="StoredVehicle.Vin" />
-            <p>Enter New DealershipID to transfer Vehicle</p>
-            
-            
-            <div class="form-group">
-                <label asp-for="StoredVehicle.Make" class="control-label"></label>
-                <input asp-for="StoredVehicle.Make" class="form-control" />
-                <span asp-validation-for="StoredVehicle.Make" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="StoredVehicle.Model" class="control-label"></label>
-                <input asp-for="StoredVehicle.Model" class="form-control" />
-                <span asp-validation-for="StoredVehicle.Model" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="StoredVehicle.Type" class="control-label"></label>
-                <input asp-for="StoredVehicle.Type" class="form-control" />
-                <span asp-validation-for="StoredVehicle.Type" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="StoredVehicle.Color" class="control-label"></label>
-                <input asp-for="StoredVehicle.Color" class="form-control" />
-                <span asp-validation-for="StoredVehicle.Color" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="StoredVehicle.Hp" class="control-label"></label>
-                <input asp-for="StoredVehicle.Hp" class="form-control" />
-                <span asp-validation-for="StoredVehicle.Hp" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="StoredVehicle.Price" class="control-label"></label>
-                <input asp-for="StoredVehicle.Price" class="form-control" />
-                <span asp-validation-for="StoredVehicle.Price" class="text-danger"></span>
-            </div>
-            
-            
-            <div class="form-group">
-                <label asp-for="StoredVehicle.DId" class="control-label"></label>
-                <input asp-for="StoredVehicle.DId" class="form-control" />
-                <span asp-validation-for="StoredVehicle.DId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+    <hr/>
+    <div class="row">
+        <div class="col-md-4">
+            <form method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="StoredVehicle.Vin"/>
+                <p>Enter New DealershipID to transfer Vehicle</p>
+
+                <div class="form-group">
+                    <label asp-for="StoredVehicle.DId" class="control-label"></label>
+                    <input asp-for="StoredVehicle.DId" class="form-control"/>
+                    <span asp-validation-for="StoredVehicle.DId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="StoredVehicle.Make" class="control-label"></label>
+                    <input asp-for="StoredVehicle.Make" class="form-control"/>
+                    <span asp-validation-for="StoredVehicle.Make" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="StoredVehicle.Model" class="control-label"></label>
+                    <input asp-for="StoredVehicle.Model" class="form-control"/>
+                    <span asp-validation-for="StoredVehicle.Model" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="StoredVehicle.Type" class="control-label"></label>
+                    <input asp-for="StoredVehicle.Type" class="form-control"/>
+                    <span asp-validation-for="StoredVehicle.Type" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="StoredVehicle.Color" class="control-label"></label>
+                    <input asp-for="StoredVehicle.Color" class="form-control"/>
+                    <span asp-validation-for="StoredVehicle.Color" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="StoredVehicle.Hp" class="control-label"></label>
+                    <input asp-for="StoredVehicle.Hp" class="form-control"/>
+                    <span asp-validation-for="StoredVehicle.Hp" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="StoredVehicle.Price" class="control-label"></label>
+                    <input asp-for="StoredVehicle.Price" class="form-control"/>
+                    <span asp-validation-for="StoredVehicle.Price" class="text-danger"></span>
+                </div>
+
+
+                <div class="form-group">
+                    <input type="submit" value="Transfer" class="btn btn-primary"/>
+                </div>
+            </form>
+        </div>
     </div>
-</div>
 
-<div>
-    <a class="button primary" asp-page="./Index">Back to List</a>
-</div>
+    <div>
+        <a class="button primary" asp-page="./Index">Back to List</a>
+    </div>
 
 
-@*
+    @*
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }*@

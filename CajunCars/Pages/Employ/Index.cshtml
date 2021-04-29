@@ -69,14 +69,18 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 
     <a class="button primary" asp-page="Create">Hire New Employees</a>
     <a class="button primary" asp-page="EmploySearch">Search Employes</a>
-    
+    <br>
     <section>
     <div class="table-wrapper">
     <table>
         <thead>
         <tr>
+            
+             <th>
+                            @Html.DisplayNameFor(model => model.Employee[0].DId)
+                        </th>
             <th>
-                @Html.DisplayNameFor(model => model.Employee[0].DId)
+                @Html.DisplayNameFor(model => model.Employee[0].EId)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Employee[0].Name)
@@ -97,6 +101,9 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                 <td>
                     @Html.DisplayFor(modelItem => item.DId)
                 </td>
+                 <td>
+                                    @Html.DisplayFor(modelItem => item.EId)
+                                </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Name)
                 </td>

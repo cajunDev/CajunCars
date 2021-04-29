@@ -49,10 +49,9 @@ namespace CajunCars.Pages.Vehicles
                         return AllVehicles;
                     }
 
-                    AllVehicles.Add($"All {type}  at dealerships :");
+                   
                     foreach (var c in results)
-                        AllVehicles.Add($"DealershipID : {c.DId} ,  VIN: {c.Vin}, Make: {c.Make}, Model: {c.Model}, Color: {c.Color}, Type: {c.Type} Horsepower: {c.Hp}, Price {c.Price}");
-                    return AllVehicles;
+                        AllVehicles.Add($"DealershipID {c.DId}  |  VIN: {c.Vin}  |  Make: {c.Make}  |  Model: {c.Model}  |  Color: {c.Color}  |  Type: {c.Type}  |  Horsepower: {c.Hp}  |  Price {c.Price}");                    return AllVehicles;
                 }
                 catch (Exception e)
                 {
@@ -81,14 +80,44 @@ namespace CajunCars.Pages.Vehicles
                         return AllVehicles;
                     }
 
-                    AllVehicles.Add($"All {color} vehicles  at dealerships :");
+                   
                     foreach (var c in results)
-                        AllVehicles.Add($"DealershipID : {c.DId} ,  VIN: {c.Vin}, Make: {c.Make}, Model: {c.Model}, Color: {c.Color}, Type: {c.Type} Horsepower: {c.Hp}, Price {c.Price}");
-                    return AllVehicles;
+                        AllVehicles.Add($"DealershipID {c.DId}  |  VIN: {c.Vin}  |  Make: {c.Make}  |  Model: {c.Model}  |  Color: {c.Color}  |  Type: {c.Type}  |  Horsepower: {c.Hp}  |  Price {c.Price}");                    return AllVehicles;
                 }
                 catch (Exception e)
                 {
                     AllVehicles.Add( $"Error searching for vehicles of color {color}");
+                    return AllVehicles;
+                }
+            }
+        }
+        
+        public static List<string> GetVehicleListModel(string model)
+        {
+            List<string> AllVehicles = new List<string>();
+            using (var db = new Business())
+            {
+                try
+                {
+                    var results =
+                        from ci in db.StoredVehicles
+                        orderby ci.Make
+                        where ci.Model == model
+                        select ci;
+
+                    if (!results.Any())
+                    {
+                        AllVehicles.Add($"");
+                        return AllVehicles;
+                    }
+
+                    
+                    foreach (var c in results)
+                        AllVehicles.Add($"DealershipID {c.DId}  |  VIN: {c.Vin}  |  Make: {c.Make}  |  Model: {c.Model}  |  Color: {c.Color}  |  Type: {c.Type}  |  Horsepower: {c.Hp}  |  Price {c.Price}");                    return AllVehicles;
+                }
+                catch (Exception e)
+                {
+                    AllVehicles.Add( $"Error searching for vehicles of model {model}");
                     return AllVehicles;
                 }
             }
@@ -105,8 +134,8 @@ namespace CajunCars.Pages.Vehicles
                 {
                     var results =
                         from ci in db.StoredVehicles
-                        orderby ci.Make
-                        where ci.Hp >= HP
+                        orderby ci.Hp
+                        where ci.Hp >= HP && HP > 0
                         select ci;
 
                     if (!results.Any())
@@ -115,14 +144,47 @@ namespace CajunCars.Pages.Vehicles
                         return AllVehicles;
                     }
 
-                    AllVehicles.Add($"All vehicles  at dealership with the minimum Horse Power of : {HP}:");
+                    
                     foreach (var c in results)
-                        AllVehicles.Add($"DealershipID : {c.DId} ,  VIN: {c.Vin}, Make: {c.Make}, Model: {c.Model}, Color: {c.Color}, Type: {c.Type} Horsepower: {c.Hp}, Price {c.Price}");
-                    return AllVehicles;
+                        AllVehicles.Add($"DealershipID {c.DId}  |  VIN: {c.Vin}  |  Make: {c.Make}  |  Model: {c.Model}  |  Color: {c.Color}  |  Type: {c.Type}  |  Horsepower: {c.Hp}  |  Price {c.Price}");                    return AllVehicles;
                 }
                 catch (Exception e)
                 {
                     AllVehicles.Add( $"Error searching for vehicles of with HP Of  {HP}");
+                    return AllVehicles;
+                }
+            }
+        }
+        
+        public static List<string> GetVehicleListPrice(int price)
+        {
+
+            
+            List<string> AllVehicles = new List<string>();
+            using (var db = new Business())
+            {
+                try
+                {
+                    var results =
+                        from ci in db.StoredVehicles
+                        orderby ci.Price
+                        where ci.Price >= price && price > 0
+                        select ci;
+
+                    if (!results.Any())
+                    {
+                        AllVehicles.Add($"");
+                        return AllVehicles;
+                    }
+
+                    
+                    foreach (var c in results)
+                        AllVehicles.Add($"DealershipID {c.DId}  |  VIN: {c.Vin}  |  Make: {c.Make}  |  Model: {c.Model}  |  Color: {c.Color}  |  Type: {c.Type}  |  Horsepower: {c.Hp}  |  Price {c.Price}");
+                    return AllVehicles;
+                }
+                catch (Exception e)
+                {
+                    AllVehicles.Add( $"Error searching for vehicles of with price Of {price}");
                     return AllVehicles;
                 }
             }

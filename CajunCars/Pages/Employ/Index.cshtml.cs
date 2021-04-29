@@ -52,7 +52,7 @@ namespace CajunCars.Pages.Employ
                     }
                     
                     foreach (var c in results)
-                        AllEmployees.Add($"{c.DId},{c.EId},{c.Name},{c.Position},{c.Pay}");
+                        AllEmployees.Add($"Dealership ID: {c.DId}  |  Employee ID: {c.EId}  |  Name: {c.Name}  |  Position: {c.Position}  |  Pay: {c.Pay}");
                     return AllEmployees;
                 }
                 catch (Exception e)
@@ -62,6 +62,38 @@ namespace CajunCars.Pages.Employ
                 }
             }
         }
+        
+        public static List<string> GetEmployeesListPay(int Pay)
+        {
+            List<string> AllEmployees = new List<string>();
+            using (var db = new Business())
+            {
+                try
+                {
+                    var results =
+                        from ci in db.Employees
+                        orderby ci.Pay
+                        where ci.Pay >= Pay && Pay > 0
+                        select ci;
+
+                    if (!results.Any())
+                    {
+                        AllEmployees.Add($"");
+                        return AllEmployees;
+                    }
+                    
+                    foreach (var c in results)
+                        AllEmployees.Add($"Dealership ID: {c.DId}  |  Employee ID: {c.EId}  |  Name: {c.Name}  |  Position: {c.Position}  |  Pay: {c.Pay}");
+                    return AllEmployees;
+                }
+                catch (Exception e)
+                {
+                    AllEmployees.Add( $"Error searching for employees at  {Pay}");
+                    return AllEmployees;
+                }
+            }
+        }
+        
     }
     
     

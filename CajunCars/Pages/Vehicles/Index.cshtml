@@ -74,6 +74,9 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 <table class=”sortable”>
     <thead>
         <tr>
+        <th>
+                        @Html.DisplayNameFor(model => model.StoredVehicle[0].Vin)
+                    </th>
             <th>
                 @Html.DisplayNameFor(model => model.StoredVehicle[0].Make)
             </th>
@@ -101,6 +104,9 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
     <tbody>
 @foreach (var item in Model.StoredVehicle) {
         <tr>
+         <td>
+                        @Html.DisplayFor(modelItem => item.Vin)
+                    </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Make)
             </td>
