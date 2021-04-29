@@ -24,9 +24,9 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 
 <!-- Page Wrapper -->
 <div id="page-wrapper">
+    
     <div>
         <form method="post" enctype="multipart/form-data">
-            List Vehicles By Type:
             @*   <input type="text" asp-for="VSType"> *@
 
             <label for="cars">Choose a Type:</label>
@@ -44,10 +44,10 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 
             @foreach (var currEmp in VehicleList.GetVehicleListType(Model.VSType))
             {
-                
-            <tr>
-                <td>@currEmp</td>
-            </tr>
+
+                <tr>
+                    <td>@currEmp</td>
+                </tr>
             }
 
         </table>
@@ -56,11 +56,10 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 
     <div>
         <form method="post" enctype="multipart/form-data">
-            List Vehicles By Type:
             @*   <input type="text" asp-for="VSType"> *@
 
-            <label for="carmodels">Choose a Model:</label>
-            <select asp-for="VSModel">
+            <label for="carmodels">Choose a Make:</label>
+            <select asp-for="VSMake">
                 <option value=""></option>
                 <option value="Toyota">Toyota</option>
                 <option value="Ford">Ford</option>
@@ -73,12 +72,12 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
         <br><br>
         <table>
 
-            @foreach (var currEmp in VehicleList.GetVehicleListModel(Model.VSModel))
+            @foreach (var currEmp in VehicleList.GetVehicleListModel(Model.VSMake))
             {
-                
-            <tr>
-                <td>@currEmp</td>
-            </tr>
+
+                <tr>
+                    <td>@currEmp</td>
+                </tr>
             }
 
         </table>
@@ -95,10 +94,10 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 
             @foreach (var currEmp in VehicleList.GetVehicleListColor(Model.VSColor))
             {
-                
-            <tr>
-                <td>@currEmp</td>
-            </tr>
+
+                <tr>
+                    <td>@currEmp</td>
+                </tr>
             }
 
         </table>
@@ -116,10 +115,10 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 
             @foreach (var currEmp in VehicleList.GetVehicleListPrice(Model.VSPrice))
             {
-                
-            <tr>
-                <td>@currEmp</td>
-            </tr>
+
+                <tr>
+                    <td>@currEmp</td>
+                </tr>
             }
 
         </table>
@@ -137,10 +136,10 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 
             @foreach (var currEmp in VehicleList.GetVehicleListHP(Model.VSHP))
             {
-                
-            <tr>
-                <td>@currEmp</td>
-            </tr>
+
+                <tr>
+                    <td>@currEmp</td>
+                </tr>
             }
 
         </table>

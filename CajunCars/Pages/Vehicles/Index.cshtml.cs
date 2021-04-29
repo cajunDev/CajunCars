@@ -92,7 +92,7 @@ namespace CajunCars.Pages.Vehicles
             }
         }
         
-        public static List<string> GetVehicleListModel(string model)
+        public static List<string> GetVehicleListModel(string makeName)
         {
             List<string> AllVehicles = new List<string>();
             using (var db = new Business())
@@ -101,8 +101,8 @@ namespace CajunCars.Pages.Vehicles
                 {
                     var results =
                         from ci in db.StoredVehicles
-                        orderby ci.Make
-                        where ci.Model == model
+                        orderby ci.Model
+                        where ci.Make == makeName
                         select ci;
 
                     if (!results.Any())
@@ -117,7 +117,7 @@ namespace CajunCars.Pages.Vehicles
                 }
                 catch (Exception e)
                 {
-                    AllVehicles.Add( $"Error searching for vehicles of model {model}");
+                    AllVehicles.Add( $"Error searching for vehicles of model {makeName}");
                     return AllVehicles;
                 }
             }

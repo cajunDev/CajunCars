@@ -29,7 +29,7 @@ namespace CajunCars.Pages.Vehicles
         
         [BindProperty]
         [Required]
-        public string VSModel { get; set; }
+        public string VSMake { get; set; }
         
     }
 }
